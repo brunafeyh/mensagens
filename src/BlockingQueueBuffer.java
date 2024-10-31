@@ -53,11 +53,9 @@ public class BlockingQueueBuffer {
         return ackQueue.isEmpty();
     }
 
-
     public synchronized Queue<String> getMessageQueue() {
         return new LinkedList<>(messageQueue);
     }
-
 
     public synchronized int getProducerMessageCount() {
         return producerMessageCount;

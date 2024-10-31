@@ -131,11 +131,14 @@ public class MessageVisualization extends JFrame {
         Component[] squares = bufferPanel.getComponents();
         int i = 0;
         for (String message : messageQueue) {
-            JPanel square = (JPanel) squares[i];
-            JLabel label = (JLabel) square.getComponent(0);
-            label.setText(message);
-            square.setBackground(Color.GREEN);
-            i++;
+            if(i != bufferCapacity){
+                JPanel square = (JPanel) squares[i];
+                JLabel label = (JLabel) square.getComponent(0);
+                label.setText(message);
+                square.setBackground(Color.GREEN);
+                i++;
+            }
+            else break;
         }
 
         for (; i < bufferCapacity; i++) {
